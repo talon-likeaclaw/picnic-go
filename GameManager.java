@@ -17,7 +17,7 @@ public class GameManager {
 
   // GameManager Constructor
   public GameManager(int numOfPlayers) {
-    if (numOfPlayers >=3 && numOfPlayers <=5) {
+    if (numOfPlayers >= 3 && numOfPlayers <= 5) {
       this.players = new Player[numOfPlayers];
       this.deck = new Deck();
       this.discardPile = new CardPile();
@@ -38,11 +38,21 @@ public class GameManager {
    * https://www.geeksforgeeks.org/how-to-print-colored-text-in-java-console/
    */
   public static void greetPlayers() {
-    System.out.println("Hello! Welcome to \u001B[31mP\u001B[33mi\u001B[32mc\u001B[36mn\u001B[34mi\u001B[35mc \u001B[34mG\u001B[36mo\u001B[37m!\n");
-    System.out.println("Picnic Go is a deck-building game where you try to make the most delicious meal from a deck of 108 cards containing 10 picnic treats and forks!");
-    System.out.println("Each round, players will take turns chosing a card from their moving hand for their set hand. Moving hands rotate after each player picks a card.");
-    System.out.println("At the end of each round, each player's set hand's points are calculated and then discarded. New moving hands are automatically drawn from the deck.");
-    System.out.println("The game ends when three rounds have been completed. The player with the most points after three rounds wins!");
+    System.out.println(
+        "Hello! Welcome to \u001B[31mP\u001B[33mi\u001B[32mc\u001B[36mn\u001B[34mi\u001B[35mc"
+            + " \u001B[34mG\u001B[36mo\u001B[37m!\n");
+    System.out.println(
+        "Picnic Go is a deck-building game where you try to make the most delicious meal from a"
+            + " deck of 108 cards containing 10 picnic treats and forks!");
+    System.out.println(
+        "Each round, players will take turns chosing a card from their moving hand for their set"
+            + " hand. Moving hands rotate after each player picks a card.");
+    System.out.println(
+        "At the end of each round, each player's set hand's points are calculated and then"
+            + " discarded. New moving hands are automatically drawn from the deck.");
+    System.out.println(
+        "The game ends when three rounds have been completed. The player with the most points after"
+            + " three rounds wins!");
     System.out.println("\nThis game was built in Java by Talon Dunbar.");
   }
 
@@ -54,7 +64,7 @@ public class GameManager {
    */
   public static int getNumOfPlayers() {
     // Variables
-    Scanner input = new Scanner(System.in); 
+    Scanner input = new Scanner(System.in);
     int numOfPlayers = 0;
     boolean isSuccess = false;
     // Logic
@@ -69,8 +79,7 @@ public class GameManager {
           isSuccess = true;
           System.out.println("Perfect, lets start a game with " + numOfPlayers + " players!");
         }
-      }
-      catch (IllegalArgumentException e) {
+      } catch (IllegalArgumentException e) {
         System.out.println(e.getMessage());
       }
     }
@@ -92,8 +101,7 @@ public class GameManager {
           String playerName = this.reader.nextLine();
           this.players[i] = new Player(playerName);
           isSuccess = true;
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
           System.out.println(e.getMessage());
         }
       }
@@ -114,9 +122,11 @@ public class GameManager {
     clearScreen();
     this.deck.shuffleDeck();
     System.out.println(this.deck);
-    System.out.println("I'm going to shuffle again though, I can't just reveal the order of the card to you..");
+    System.out.println(
+        "I'm going to shuffle again though, I can't just reveal the order of the cards to you..");
     System.out.println("*shuffling cards*");
-    this.deck.shuffleDeck(); // Shuffle again so people with photographic memories don't have an advantage 
+    this.deck.shuffleDeck(); // Shuffle again so people with photographic memories don't have an
+    // advantage
   }
 
   /*
@@ -133,7 +143,7 @@ public class GameManager {
     int numOfCards = 0;
     // Logic
     if (numOfPlayers == 3) {
-    numOfCards = 9;
+      numOfCards = 9;
     } else if (numOfPlayers == 4) {
       numOfCards = 8;
     } else {
@@ -147,13 +157,12 @@ public class GameManager {
     }
   }
 
-
   /*
    * runGame Method:
    * The runGame method takes not input parameters. It initializes the players in
-   * the game, shuffles the deck, draws every player's moving hand and performs 
-   * the main game loop for the game to function. Looping through three rounds 
-   * and within each round looping through each player until everyone has used 
+   * the game, shuffles the deck, draws every player's moving hand and performs
+   * the main game loop for the game to function. Looping through three rounds
+   * and within each round looping through each player until everyone has used
    * all of their moving hand cards.
    */
   public void runGame() {
@@ -198,7 +207,8 @@ public class GameManager {
   private boolean checkRoundOver() {
     boolean isRoundOver = true;
     for (Player player : this.players) {
-      if (player.getMovingHand().length() > 0) { // Round not over if anyone's moving hand is not empty
+      if (player.getMovingHand().length()
+          > 0) { // Round not over if anyone's moving hand is not empty
         isRoundOver = false;
       }
     }
@@ -228,9 +238,11 @@ public class GameManager {
   private void disobedienceCheck() {
     int disobedienceCounter = 0;
     String userInput = "The user better not input text >:(";
-    while (userInput.length() != 0 ) {
+    while (userInput.length() != 0) {
       if (disobedienceCounter == 0) {
-        System.out.println("Alright.. *drum roll* Let's see who won! Press enter to find out! Please don't type anything.");
+        System.out.println(
+            "Alright.. *drum roll* Let's see who won! Press enter to find out! Please don't type"
+                + " anything.");
         userInput = reader.nextLine();
         disobedienceCounter++;
       } else if (disobedienceCounter == 1) {
@@ -248,8 +260,8 @@ public class GameManager {
       }
     }
   }
-  
-  /* 
+
+  /*
    * endGame Method:
    * This helper method takes no parameters and returns nothing
    * It holds the end game conditions and prints the final results to the screen.
@@ -257,7 +269,9 @@ public class GameManager {
   private void endGame() {
     int tieCounter = 0;
     System.out.println("We have reached the end of the game! Great job everyone!!");
-    System.out.println("Let's count everyones cupcakes and see who will be awarded 6 points, and who will lose 6 points!\n");
+    System.out.println(
+        "Let's count everyone's cupcakes and see who will be awarded 6 points, and who will lose 6"
+            + " points!\n");
     System.out.println("Press enter to display results:");
     reader.nextLine();
     applyCupcakePoints();
@@ -270,10 +284,12 @@ public class GameManager {
       }
     }
     if (tieCounter >= 2) {
-      System.out.println("It's a tie! Which is an unfortunate way to end! In that case, everybody wins!!!!");
+      System.out.println(
+          "It's a tie! Which is an unfortunate way to end! In that case, everybody wins!!!!");
     } else {
-      System.out.println("\nThe winner is " + winner.getName() + " with " + winner.getPoints() + " points!");
-	  System.out.println("You really know how to craft a delicious picnic!\n");
+      System.out.println(
+          "\nThe winner is " + winner.getName() + " with " + winner.getPoints() + " points!");
+      System.out.println("You really know how to craft a delicious picnic!\n");
       System.out.println("Better luck next time everyone else! Thank you for playing!!");
     }
   }
@@ -344,7 +360,8 @@ public class GameManager {
         player.addPoints(6);
         System.out.println(player.getName() + " was awarded 6 points!");
       } else if (player.getCupcakeCounter() == cupcakeLoser.getCupcakeCounter()) {
-        player.removePoints(6);;
+        player.removePoints(6);
+        ;
         System.out.println(player.getName() + " lost 6 points!");
       }
     }
@@ -358,8 +375,14 @@ public class GameManager {
    */
   private void printPlayerPoints() {
     for (Player player : this.players) {
-      System.out.println(player.getName() + "'s Points: " + player.getPoints() + "  " + "Cupcakes: "
-         + player.getCupcakeCounter() + "\n");
+      System.out.println(
+          player.getName()
+              + "'s Points: "
+              + player.getPoints()
+              + "  "
+              + "Cupcakes: "
+              + player.getCupcakeCounter()
+              + "\n");
     }
   }
 
@@ -422,26 +445,40 @@ public class GameManager {
     System.out.println("- Pork \u001B[32mSandwiches\u001B[37m are worth 2 points.");
     System.out.println("- Beef \u001B[32mSandwiches\u001B[37m are worth 3 points.");
     System.out.println("\u001B[36mMayonnaise\u001B[37m:");
-    System.out.println("- Triples your best sandwich. You can have multiple \u001B[36mmayonnaise\u001B[37m played.");
-    System.out.println("- They cannot stack - only one \u001B[36mmayonnaise\u001B[37m is allowed per sandwich.");
+    System.out.println(
+        "- Triples your best sandwich. You can have multiple \u001B[36mmayonnaise\u001B[37m"
+            + " played.");
+    System.out.println(
+        "- They cannot stack - only one \u001B[36mmayonnaise\u001B[37m is allowed per sandwich.");
     System.out.println("\u001B[33mPotato Chips\u001B[37m:");
-    System.out.println("- \u001B[33mChips\u001B[37m give 1, 2, or 3 points, according to the number shown on the card.");
+    System.out.println(
+        "- \u001B[33mChips\u001B[37m give 1, 2, or 3 points, according to the number shown on the"
+            + " card.");
     System.out.println("\u001B[0mDevilled Eggs\u001B[37m:");
     System.out.println("- Each set of 2 is worth 5 points, otherwise, worth no points.");
-    System.out.println("- You can score multiple sets of \u001B[0mdevilled eggs\u001B[37m in one round.");
+    System.out.println(
+        "- You can score multiple sets of \u001B[0mdevilled eggs\u001B[37m in one round.");
     System.out.println("\u001B[34mFried Chicken\u001B[37m:");
     System.out.println("- Each set of 3 is worth 10 points, otherwise, worth no points.");
-    System.out.println("- You can score multiple sets of \u001B[34mfried chicken\u001B[37m in one round.");
+    System.out.println(
+        "- You can score multiple sets of \u001B[34mfried chicken\u001B[37m in one round.");
     System.out.println("\u001B[31mPizza\u001B[37m:");
-    System.out.println("- A set of 1, 2, 3, 4, and 5 or more is worth 1, 3, 6, 10, and 15 points, respectively.");
-    System.out.println("- You cannot score multiple sets of \u001B[31mpizza\u001B[37m in one round");
+    System.out.println(
+        "- A set of 1, 2, 3, 4, and 5 or more is worth 1, 3, 6, 10, and 15 points, respectively.");
+    System.out.println(
+        "- You cannot score multiple sets of \u001B[31mpizza\u001B[37m in one round");
     System.out.println("- Any \u001B[31mpizza\u001B[37m you get past the fifth has no effect.");
     System.out.println("\u001B[35mCupcake\u001B[37m:");
     System.out.println("- Cupcakes are tallied until the end of the game.");
-    System.out.println("- After all 3 rounds have passed, the player(s) with the most \u001B[35mcupcakes\u001B[37m scores 6 points.");
-    System.out.println("- The player(s) with the least \u001B[35mcupcakes\u001B[37m loses 6 points. If there is a tie both players win (or lose) 6 points.");
+    System.out.println(
+        "- After all 3 rounds have passed, the player(s) with the most \u001B[35mcupcakes\u001B[37m"
+            + " scores 6 points.");
+    System.out.println(
+        "- The player(s) with the least \u001B[35mcupcakes\u001B[37m loses 6 points. If there is a"
+            + " tie both players win (or lose) 6 points.");
     System.out.println("\u001B[0mFork\u001B[37m:");
-    System.out.println("- Scores nothing, but can be used at a later turn. You can only use one fork per round.");
+    System.out.println(
+        "- Scores nothing, but can be used at a later turn. You can only use one fork per round.");
     System.out.println("- On use, you're allowed to pick 2 cards for that turn.");
   }
 
@@ -465,7 +502,9 @@ public class GameManager {
   public static int askCardChoice(int movingHandLength) {
     if (movingHandLength >= 1 && movingHandLength <= 9) {
       Scanner scanner = new Scanner(System.in);
-      System.out.println("\nPick your card by entering a number from 1 to " + movingHandLength
+      System.out.println(
+          "\nPick your card by entering a number from 1 to "
+              + movingHandLength
               + " representing the card you want to draw into your set hand:");
       int chosenCard = Integer.parseInt(scanner.nextLine()) - 1;
       return chosenCard;
@@ -484,14 +523,19 @@ public class GameManager {
   public static int askForkCardChoice(int movingHandLength) {
     if (movingHandLength >= 0 && movingHandLength <= 9) {
       Scanner scanner = new Scanner(System.in);
-      System.out.println("\nEnter 0 if you would like to use your fork to pick two cards. You may only use one fork per round.");
-      System.out.println("Or you can pick a number from 1 to " + movingHandLength + " representing the card you want to draw into your set hand:");
+      System.out.println(
+          "\n"
+              + "Enter 0 if you would like to use your fork to pick two cards. You may only use one"
+              + " fork per round.");
+      System.out.println(
+          "Or you can pick a number from 1 to "
+              + movingHandLength
+              + " representing the card you want to draw into your set hand:");
       int chosenCard = Integer.parseInt(scanner.nextLine()) - 1;
       return chosenCard;
     } else {
       throw new IllegalArgumentException("Moving hand length must be between 0 and 9 inclusive.");
     }
-    
   }
 
   /*
@@ -505,5 +549,4 @@ public class GameManager {
     int userInput = Integer.parseInt(scanner.nextLine());
     return userInput;
   }
-
 }

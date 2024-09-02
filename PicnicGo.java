@@ -9,8 +9,10 @@
 public class PicnicGo {
   public static void main(String[] args) {
     GameManager.greetPlayers(); // Greet the players
-    int playerCount = GameManager.getNumOfPlayers(); // Ask the players how many people will be playing
-    GameManager picnicGo = new GameManager(playerCount); // Use the playerCount to initialize the GameManager.
+    int playerCount =
+        GameManager.getNumOfPlayers(); // Ask the players how many people will be playing
+    GameManager picnicGo =
+        new GameManager(playerCount); // Use the playerCount to initialize the GameManager.
     picnicGo.runGame(); // Start the game
   }
 }

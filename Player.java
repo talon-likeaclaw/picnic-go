@@ -124,7 +124,8 @@ public class Player {
   public void beginTurn() {
     // Skip turn because player has no cards left to play and someone else does
     if (this.movingHand.length() == 0) {
-      System.out.println("\n" + this.name + " you have no cards to play, so it the next player's turn!");
+      System.out.println(
+          "\n" + this.name + " you have no cards to play, so it the next player's turn!");
     } else {
       System.out.println("It is " + this.name + "'s turn:");
       boolean isSuccess = false;
@@ -504,5 +505,4 @@ public class Player {
     }
     addCupcakes(cupcakeCounter);
   }
-
 }

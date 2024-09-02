@@ -20,8 +20,13 @@ public class Deck {
     int deckLength = this.cards.length();
     String builder = "";
     for (int i = 0; i < deckLength; i += 3) {
-      builder += this.cards.getCardAt(i) + ", " + this.cards.getCardAt(i + 1) + ", " + this.cards.getCardAt(i + 2)
-          + "\n";
+      builder +=
+          this.cards.getCardAt(i)
+              + ", "
+              + this.cards.getCardAt(i + 1)
+              + ", "
+              + this.cards.getCardAt(i + 2)
+              + "\n";
     }
     builder += "\u001b[0m";
     return builder;
@@ -53,20 +58,21 @@ public class Deck {
    * to initalize the deck with the CardType amountInDeck field.
    */
   private CardType[] initializeCardTypes() {
-    CardType[] cardTypes = new CardType[] {
-        CardType.THREE_POTATO_CHIPS, // 8 Triple Potato Chips
-        CardType.TWO_POTATO_CHIPS, // 12 Dual Potato Chips
-        CardType.ONE_POTATO_CHIP, // 6 Single Potato Chips
-        CardType.CHICKEN_SANDWICH, // 5 Chicken Sandwiches
-        CardType.PORK_SANDWICH, // 10 Pork Sandwiches
-        CardType.BEEF_SANDWICH, // 5 Beef Sandwiches
-        CardType.FRIED_CHICKEN, // 14 Fried Chicken
-        CardType.DEVILLED_EGGS, // 14 Devilled Eggs
-        CardType.MAYONNAISE, // 6 Jars of Mayonnaise
-        CardType.CUPCAKE, // 10 Cupcakes
-        CardType.PIZZA, // 14 Pizzas
-        CardType.FORK // 4 Forks
-    };
+    CardType[] cardTypes =
+        new CardType[] {
+          CardType.THREE_POTATO_CHIPS, // 8 Triple Potato Chips
+          CardType.TWO_POTATO_CHIPS, // 12 Dual Potato Chips
+          CardType.ONE_POTATO_CHIP, // 6 Single Potato Chips
+          CardType.CHICKEN_SANDWICH, // 5 Chicken Sandwiches
+          CardType.PORK_SANDWICH, // 10 Pork Sandwiches
+          CardType.BEEF_SANDWICH, // 5 Beef Sandwiches
+          CardType.FRIED_CHICKEN, // 14 Fried Chicken
+          CardType.DEVILLED_EGGS, // 14 Devilled Eggs
+          CardType.MAYONNAISE, // 6 Jars of Mayonnaise
+          CardType.CUPCAKE, // 10 Cupcakes
+          CardType.PIZZA, // 14 Pizzas
+          CardType.FORK // 4 Forks
+        };
     return cardTypes;
   }
 
@@ -86,5 +92,4 @@ public class Deck {
       }
     }
   }
-
 }
