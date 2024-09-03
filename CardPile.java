@@ -56,7 +56,7 @@ public class CardPile {
    * removeCardAt Method:
    * This method takes an integer as input and returns a Card object.
    * The method removes the Card at the chosen index and returns it.
-   * When the card is removed from the CardPile, all of the cards to the right
+   * When the card is removed from the CardPile, all the cards to the right
    * of the specified index shift to the left.
    */
   public Card removeCardAt(int index) {
@@ -88,7 +88,7 @@ public class CardPile {
   /*
    * insertCardAt Method:
    * This method takes a Card object and an integer as input and returns nothing.
-   * The method inserts the input Card at the input index and shifts all of the
+   * The method inserts the input Card at the input index and shifts all the
    * Cards to the right from the index where the Card was inserted.
    */
   public void insertCardAt(Card card, int index) {

@@ -16,7 +16,7 @@ public class Player {
 
   // Player Constructor
   public Player(String name) {
-    if (name.length() == 0) {
+    if (name.isEmpty()) {
       throw new IllegalArgumentException("Name cannot be empty!");
     } else {
       this.name = name;
@@ -117,7 +117,7 @@ public class Player {
   /*
    * beginTurn Method:
    * The beginTurn helper method takes input of type Player and returns nothing.
-   * It erforms the initialization of the turn for the player that was input.
+   * It performs the initialization of the turn for the player that was input.
    * This ensures that the player is ready to start their turn and that the other
    * players a not looking at the screen before starting their turn.
    */
@@ -165,7 +165,7 @@ public class Player {
     if (this.setHand.cardPileContains(fork) && !this.forkUsed && playerHandLength >= 2) {
       performForkTurn();
     } else {
-      // Perform turn by chosing a card from moving hand
+      // Perform turn by choosing a card from moving hand
       boolean isSuccess = false;
       while (!isSuccess) {
         try {
@@ -216,7 +216,7 @@ public class Player {
    * useFork Method:
    * The useFork Method helper takes input of type Player, which is passed through
    * from the performTurn method. The method enables the player to draw two cards
-   * within their turn. Only onefork may be used within a round.
+   * within their turn. Only one fork may be used within a round.
    */
   private void useFork() {
     // Choose first card
@@ -261,7 +261,7 @@ public class Player {
   /*
    * printSetHand()
    * This helper method takes as input type Player and does not return anything.
-   * It uses the input player to to print their set ahdn with this name.
+   * It uses the input player to print their set hand with this name.
    */
   public void printSetHand() {
     System.out.println(this.name + "'s Set Hand:");
@@ -353,7 +353,7 @@ public class Player {
   /*
    * calculateMayo Method:
    * This method takes as input a player and an int array of sandwich and mayo counts.
-   * It loops through each mayo card and applys it's point tripling effect to the players
+   * It loops through each mayo card and applies it's point tripling effect to the players
    * sandwiched from best sandwich to worst.
    */
   private void calculateMayo(int[] sandwichCounter) {
@@ -461,7 +461,7 @@ public class Player {
    * calculatePizza Method:
    * This helper method takes a player as input and does not return anything
    * It determines how many pizza cards the input player has in their set hand
-   * and calculates how many points the player will get and applys the points
+   * and calculates how many points the player will get and applies the points
    */
   private void calculatePizza() {
     // Variables

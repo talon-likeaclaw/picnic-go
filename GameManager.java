@@ -87,9 +87,9 @@ public class GameManager {
   }
 
   /*
-   * initalizePlayers Method:
+   * initializePlayers Method:
    * This helper method takes no input parameters and does not return anything.
-   * It asks the players to input their names in order to initalize each player in
+   * It asks the players to input their names in order to initialize each player in
    * the this.players array.
    */
   private void initializePlayers() {
@@ -133,7 +133,7 @@ public class GameManager {
    * initializeMovingHands Method:
    * This helper method takes no input parameters and does not return anything.
    * It takes the length of the this.players array in order to determine the
-   * number of cards to draw into each players moving hands. Once the number of
+   * number of cards to draw into each player's moving hands. Once the number of
    * cards has been determined the method draws the cards into each players moving
    * hand from the deck.
    */
@@ -202,7 +202,7 @@ public class GameManager {
    * checkRoundOver Method:
    * The checkRoundOver helper method takes no input and returns a boolean.
    * It determines if the round is over by analyzing each player's moving hand.
-   * If all of the players do not have any cards remaining then it returns true.
+   * If all the players do not have any cards remaining then it returns true.
    */
   private boolean checkRoundOver() {
     boolean isRoundOver = true;
@@ -218,7 +218,7 @@ public class GameManager {
   /*
    * endRound Method:
    * The endRound helper method takes no input parameters and does not return anything.
-   * When called it will calculate all of the player's points, reset everything,
+   * When called it will calculate all player's points, reset everything,
    * and start the next round by turns the roundOver boolean field to true.
    */
   private void endRound() {
@@ -232,13 +232,13 @@ public class GameManager {
   /*
    * disobedienceCheck Method:
    * This method takes no input parameters and returns nothing.
-   * This method is an easter egg that yells at the users if they input text
+   * This method is an Easter egg that yells at the users if they input text
    * before the end of game results are displayed.
    */
   private void disobedienceCheck() {
     int disobedienceCounter = 0;
     String userInput = "The user better not input text >:(";
-    while (userInput.length() != 0) {
+    while (!userInput.isEmpty()) {
       if (disobedienceCounter == 0) {
         System.out.println(
             "Alright.. *drum roll* Let's see who won! Press enter to find out! Please don't type"
@@ -297,7 +297,7 @@ public class GameManager {
   /*
    * decideWinner Method:
    * This method takes no input parameters and returns a player object
-   * It determines who is the winner by comparing all of the player's points!
+   * It determines who is the winner by comparing all the player's points!
    */
   private Player decideWinner() {
     Player winner = new Player("Winner!");
@@ -392,7 +392,7 @@ public class GameManager {
    * It rotates each the moving hand Card Pile of each player.
    */
   private void rotateMovingHand() {
-    // Varaibles
+    // Variables
     CardPile firstPlayersHand = this.players[0].getMovingHand();
     // Logic
     for (int i = 0; i < this.players.length; i++) {
@@ -436,7 +436,7 @@ public class GameManager {
    * displayCardValues Method:
    * This helper method takes no input parameters and does not return anything.
    * It prints the card values in a cute format for the player to make an
-   * informed decision when they are chosing their card during their turn.
+   * informed decision when they are choosing their card during their turn.
    */
   public static void displayCardValues() {
     System.out.println("Card Values:");
@@ -506,8 +506,7 @@ public class GameManager {
           "\nPick your card by entering a number from 1 to "
               + movingHandLength
               + " representing the card you want to draw into your set hand:");
-      int chosenCard = Integer.parseInt(scanner.nextLine()) - 1;
-      return chosenCard;
+        return Integer.parseInt(scanner.nextLine()) - 1;
     } else {
       throw new IllegalArgumentException("Moving hand length must be between 1 and 9 inclusive.");
     }
@@ -531,8 +530,7 @@ public class GameManager {
           "Or you can pick a number from 1 to "
               + movingHandLength
               + " representing the card you want to draw into your set hand:");
-      int chosenCard = Integer.parseInt(scanner.nextLine()) - 1;
-      return chosenCard;
+        return Integer.parseInt(scanner.nextLine()) - 1;
     } else {
       throw new IllegalArgumentException("Moving hand length must be between 0 and 9 inclusive.");
     }
@@ -546,7 +544,6 @@ public class GameManager {
   public static int confirmBeginTurn() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Enter 1 to begin your turn:");
-    int userInput = Integer.parseInt(scanner.nextLine());
-    return userInput;
+      return Integer.parseInt(scanner.nextLine());
   }
 }

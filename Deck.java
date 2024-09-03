@@ -52,28 +52,28 @@ public class Deck {
   }
 
   /*
-   * initalizeCardTypes Method:
+   * initializeCardTypes Method:
    * This method takes no input parameters and returns a CardType[].
    * The array holds each CardType in that game so that we can use it
-   * to initalize the deck with the CardType amountInDeck field.
+   * to initialize the deck with the CardType amountInDeck field.
    */
   private CardType[] initializeCardTypes() {
-    CardType[] cardTypes =
-        new CardType[] {
-          CardType.THREE_POTATO_CHIPS, // 8 Triple Potato Chips
-          CardType.TWO_POTATO_CHIPS, // 12 Dual Potato Chips
-          CardType.ONE_POTATO_CHIP, // 6 Single Potato Chips
-          CardType.CHICKEN_SANDWICH, // 5 Chicken Sandwiches
-          CardType.PORK_SANDWICH, // 10 Pork Sandwiches
-          CardType.BEEF_SANDWICH, // 5 Beef Sandwiches
-          CardType.FRIED_CHICKEN, // 14 Fried Chicken
-          CardType.DEVILLED_EGGS, // 14 Devilled Eggs
-          CardType.MAYONNAISE, // 6 Jars of Mayonnaise
-          CardType.CUPCAKE, // 10 Cupcakes
-          CardType.PIZZA, // 14 Pizzas
-          CardType.FORK // 4 Forks
-        };
-    return cardTypes;
+    CardType[] cardTypes;
+      cardTypes = new CardType[] {
+        CardType.THREE_POTATO_CHIPS, // 8 Triple Potato Chips
+        CardType.TWO_POTATO_CHIPS, // 12 Dual Potato Chips
+        CardType.ONE_POTATO_CHIP, // 6 Single Potato Chips
+        CardType.CHICKEN_SANDWICH, // 5 Chicken Sandwiches
+        CardType.PORK_SANDWICH, // 10 Pork Sandwiches
+        CardType.BEEF_SANDWICH, // 5 Beef Sandwiches
+        CardType.FRIED_CHICKEN, // 14 Fried Chicken
+        CardType.DEVILLED_EGGS, // 14 Devilled Eggs
+        CardType.MAYONNAISE, // 6 Jars of Mayonnaise
+        CardType.CUPCAKE, // 10 Cupcakes
+        CardType.PIZZA, // 14 Pizzas
+        CardType.FORK // 4 Forks
+      };
+      return cardTypes;
   }
 
   /*
@@ -84,12 +84,12 @@ public class Deck {
    * it then loops through each CardType putting the correct amount in the Deck.
    */
   private void initializeDeck(CardType[] cardTypes) {
-    for (int i = 0; i < cardTypes.length; i++) {
-      Card nextCard = new Card(cardTypes[i]);
-      int amountOfCards = nextCard.getAmountInDeck();
-      for (int j = 0; j < amountOfCards; j++) {
-        this.cards.addCard(nextCard);
+      for (CardType cardType : cardTypes) {
+          Card nextCard = new Card(cardType);
+          int amountOfCards = nextCard.getAmountInDeck();
+          for (int j = 0; j < amountOfCards; j++) {
+              this.cards.addCard(nextCard);
+          }
       }
-    }
   }
 }
