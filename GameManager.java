@@ -140,7 +140,7 @@ public class GameManager {
   private void initializeMovingHands() {
     // Variables
     int numOfPlayers = this.players.length;
-    int numOfCards = 0;
+    int numOfCards;
     // Logic
     if (numOfPlayers == 3) {
       numOfCards = 9;
@@ -361,7 +361,6 @@ public class GameManager {
         System.out.println(player.getName() + " was awarded 6 points!");
       } else if (player.getCupcakeCounter() == cupcakeLoser.getCupcakeCounter()) {
         player.removePoints(6);
-        ;
         System.out.println(player.getName() + " lost 6 points!");
       }
     }

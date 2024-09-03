@@ -73,37 +73,6 @@ public class CardPile {
   }
 
   /*
-   * setCardAt Method:
-   * This method takes a Card object and an integer as input and returns nothing.
-   * The method sets the Card at the specified index to the input Card. (Replacing it).
-   */
-  public void setCardAt(Card card, int index) {
-    if (index >= 0 && index < this.next) {
-      this.cards[index] = card;
-    } else {
-      throw new IllegalArgumentException("\nIndex out of bounds.");
-    }
-  }
-
-  /*
-   * insertCardAt Method:
-   * This method takes a Card object and an integer as input and returns nothing.
-   * The method inserts the input Card at the input index and shifts all the
-   * Cards to the right from the index where the Card was inserted.
-   */
-  public void insertCardAt(Card card, int index) {
-    if (index >= 0 && index < this.next) {
-      for (int i = this.next; i > index; i--) {
-        this.cards[i] = this.cards[i - 1];
-      }
-      this.cards[index] = card;
-      this.next++;
-    } else {
-      throw new IllegalArgumentException("\nIndex out of bounds.");
-    }
-  }
-
-  /*
    * getCardAt Method:
    * This method takes an integer as input and returns a Card object.
    * The method returns the Card object at the specified index.

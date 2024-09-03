@@ -44,10 +44,6 @@ public class Player {
     return this.setHand;
   }
 
-  public boolean getForkUsed() {
-    return this.forkUsed;
-  }
-
   public int getCupcakeCounter() {
     return this.cupcakeCounter;
   }
@@ -55,10 +51,6 @@ public class Player {
   // Player Setters
   public void setMovingHand(CardPile movingHand) {
     this.movingHand = movingHand;
-  }
-
-  public void setPoints(int points) {
-    this.points = points;
   }
 
   public void setForkUsed(boolean forkUsed) {
@@ -277,8 +269,8 @@ public class Player {
    */
   public void sortSetHand() {
     // Variables
-    int comparingNum = 0;
-    int smallestNum = 0;
+    int comparingNum;
+    int smallestNum;
     // Logic
     for (int i = 0; i < this.setHand.length(); i++) {
       int smallestIndex = i;
